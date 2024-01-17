@@ -23,6 +23,15 @@ def replace_relative_links(response_text):
         response_text = re.sub(link_pattern, rf'{typ}=".\1"', response_text)
     return response_text
 
+def fix_main_page(response_text):
+    response_text = replace_relative_links(response_text)
+    soup = bs4.BeautifulSoup(response_text, 'html.parser')
+    # add this:
+    # 	<meta charset="UTF-8">
+    
+    soup.find('head').append(soup.new_tag('meta', charset="UTF-8"))
+    return str(soup)    
+
 def get_file(session, domain, url):
     rel_path: Path = Path.cwd() / url
     if rel_path.exists():
