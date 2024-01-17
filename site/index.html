@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>TermInator</title>
+<link href="./static_root/css/main.css" media="screen" rel="stylesheet" type="text/css"/>
+<link href="./static_root/css/grid.css" media="screen" rel="stylesheet" type="text/css"/>
+<link href="./favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="./favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="./static_root/css/summary.css" media="screen" rel="stylesheet">
+<link href="./static_root/css/jquery.modal.css" media="screen" rel="stylesheet">
+</link></link><meta charset="utf-8"/></head>
+<body>
+<div id="wrapper">
+<div id="header">
+<div id="userinfo">
+<nobr>alishahali1382 / <a href="./logout/">خروج</a></nobr>
+</div>
+<div id="logo"></div>
+</div>
+<div id="content">
+<div class="top">
+<div class="top-right"></div>
+<div class="top-left"></div>
+<div class="top-center"></div>
+</div>
+<div class="center">
+<div id="rightbar">
+<ul>
+<li><a href="./"><div class="tab-icon home-icon"></div></a></li>
+<li><a class="active" href="./schedule/"><div class="tab-icon calendar-icon"></div></a></li>
+<li><a href="./schedule/summary/"><div class="tab-icon list-icon"></div></a></li>
+<!--<li><a href="#"><div class="tab-icon settings-icon"></div></a></li>-->
+</ul>
+</div>
+<div id="main-content">
+<div id="sidebar">
+<div class="schedule-header">تعداد واحدها: <span id="unitsum">0</span>
+<small style="font-weight:normal;"><br/><a href="./schedule/summary/" style="color:#999;">(مشاهده جدول واحد‌های انتخابی)</a></small>
+<!--<small style="font-weight:normal;"><br/><a style="color:#999;" href="http://ce.sharif.edu/~allahverdi/courses/" target="_blank">نمایش لحظه‌ای ظرفیت دروس</a></small>-->
+</div>
+<select class="combobox" id="department-select">
+<option value="-2">انتخاب دانشکده...</option>
+<option disabled="disabled"></option>
+<option value="-1">درسهای من</option>
+<option disabled="disabled"></option>
+<option value="28">دروس پایه و عمومی (پردیس کیش)</option>
+<option value="43">دروس پایه و عمومی(پردیس تهران)</option>
+<option value="4">شیمی</option>
+<option value="3">علوم ریاضی</option>
+<option value="48">فن آوری اطلاعات(پردیس تهران)</option>
+<option value="5">فیزیک</option>
+<option value="32">مدیریت (MBAپردیس کیش)</option>
+<option value="22">مدیریت و اقتصاد</option>
+<option value="87">مرکز آموزش مهارت‌های مهندسی</option>
+<option value="75">مرکز تربیت بدنی</option>
+<option value="10">مرکز تربیت‌بدنی</option>
+<option value="37">مرکز زبان (پردیس کیش)</option>
+<option value="55">مرکز زبان‌ها و زبان‌شناسی</option>
+<option value="15">مرکز معارف اسلامی و علوم انسانی</option>
+<option value="12">مرکز کارگاه‌ها</option>
+<option value="85">مرکز کارگاه‌ها(مرکز آموزش مهارتهای مهندسی)</option>
+<option value="14">مرکز گرافيک</option>
+<option value="82">مرکز گرافیک(آموزشهای مهارتهای مهندسی)</option>
+<option value="86">مرکز گرافیک(مرکز آموزش مهارتهای مهندسی)</option>
+<option value="24">مهندسی انرژی</option>
+<option value="6">مهندسی برق</option>
+<option value="33">مهندسی برق (پردیس کیش)</option>
+<option value="7">مهندسی شیمی و نفت</option>
+<option value="2">مهندسی صنایع</option>
+<option value="57">مهندسی صنایع (پردیس کیش)</option>
+<option value="29">مهندسی صنایع(پردیس کیش)</option>
+<option value="1">مهندسی عمران</option>
+<option value="31">مهندسی عمران (پردیس کیش)</option>
+<option value="44">مهندسی عمران(پردیس تهران)</option>
+<option value="52">مهندسی فن آوری اطلاعات(پردیس تهران)</option>
+<option value="58">مهندسی فناوری اطلاعات (پردیس کیش)</option>
+<option value="30">مهندسی فن‌آوری اطلاعات(پردیس کیش)</option>
+<option value="35">مهندسی مواد (پردیس کیش)</option>
+<option value="47">مهندسی مکاترونیک(پردیس تهران)</option>
+<option value="9">مهندسی مکانیک</option>
+<option value="36">مهندسی مکانیک (پردیس کیش)</option>
+<option value="45">مهندسی نفت(پردیس تهران)</option>
+<option value="56">مهندسی هوافضا</option>
+<option value="62">مهندسی هوافضا (پردیس کیش)</option>
+<option value="8">مهندسی و علم مواد</option>
+<option value="38">مهندسی کامپیوتر</option>
+<option value="72">مهندسی کامپیوتر (پردیس کیش)</option>
+<option value="34">نانو فن آوری (پردیس کیش)</option>
+<option value="59">نانوفناوری (پردیس کیش)</option>
+<option value="71">پژوهشکده علوم و فن آوری نانو</option>
+<option value="26">پژوهشکده علوم و فناوری نانو</option>
+<option value="77">پژوهشکده علوم و فن‌آوری نانو</option>
+<option value="25">پژوهشکده فناوری انرژی</option>
+<option value="84">گرافیک(مرکز آموزش مهارتهای مهندسی)</option>
+<option value="20">گروه فلسفه علم</option>
+</select>
+<div class="course-list">
+<div class="searchbox">
+<input class="searchinput filter" placeholder="جستجو..." type="text"/>
+</div>
+<div class="list">
+<ul id="course-group-list">
+</ul>
+</div>
+<div class="bottom"></div>
+</div>
+<!--<style>@font-face {font-family: 'byek';src: url('http://fontonline.ir/fonts/BYekan.eot?#') format('eot'),url('http://fontonline.ir/fonts/BYekan.ttf') format('truetype'),url('http://fontonline.ir/fonts/BYekan.woff') format('woff');}#tsa{-webkit-filter:grayscale(1);opacity:0.5;filter:grayscale(1);line-height:1.2;height:80px;font-family:byek;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;width:192px;border:1px solid #fff;border-radius:2px;direction:rtl;padding:0 2px}#tsa a,#tsa a:active,#tsa a:focus,#tsa a:hover,#tsa a:visited{text-decoration:none;color:inherit}#tsa:hover{-webkit-filter:grayscale(0);opacity:1.0;filter:grayscale(0);background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAwMS8yMC8xNasbenoAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAAAr0lEQVQYlW3QMWoCURSF4e89BiGIkBCwyAJ8ELKPrCBdII0rcCe6ABs7sRBxKyneAtIKEctxXhoHJuPc8vJzzn9vKKUYnJQWeMcL3kIphZSmCB0s4hdP+MRHKLPZHgfUPfAHr9hiV2Eq53Wv9hFzfOOMbUQtpYcONMIX1njGRM7LOHBGjZWcTzeFBqo7LOemtwmtdMF1IFmb1iZGjKUU/X9Rg1G3OuJ4c+uCV1ywgT+FhyurDH2eDgAAAABJRU5ErkJggg==) no-repeat;background-position:70px 15px;border:1px solid #fff;/*#a2c0f4*/}#tsa img{width:50px}#tsa .td{display:inline-block;font-size:12px;position:relative;top:-21px;right:55px}#tsa .ex{top:-11px;right:-2px;width:188px;padding-right:2px;height:20px;font-size:13px}#tsa #tt{vertical-align:top;display:inline-block;line-height:148%;color:#e51837;font-size:30px;margin-right:7px}</style><p id="tsa" style="margin-bottom:20px;"><a href="http://torob.ir" target="_blank"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA+CAMAAACmw0MPAAAAWlBMVEVMaXHlGDflGDd4oi7lGDflGDd4oi7lGDflGDflGDd4oi7lGDd4oi54oi54oi54oi7lGDflGDd4oi54oi7lGDflGDflGDd4oi7lGDflGDd4oi54oi7lGDd4oi6Hubz4AAAAHHRSTlMA0CCAQIDAEPDAojAQaNBIoLAwkGDgcPCQUCDg/EEITwAAAY9JREFUeNqdltuygjAMRYO0lILcBBA0/P9vHqZQIhwGSNarrtndSe0Ix2Tj+H4CAxInEoH4mjxG6CfJ/Fej0VHcNMMpJfORjvC26buFEnOsASBhmtlaLhoZPaldQuYHbvJ1X/+uZnRPo8HslpIq9bhU88Wsl2MbXbU4Y/vGnJjPZD5tsfTtcYNtzuab5y+Y1CgpAEyMO2JtdlmZa5bX22GW+J92+PXq9+ipgRjwkNKsYu617SbSGI8JvOpEorgQSd2bIYlX6jP6Fd/zkDo8pfKr+FLNF0w8LF7QrZe9jtxWnGc0XhIfXMiHjvEG5dZKlQ7wJhTqLhuDHgiNHGJuJKGYkYSWRqL1ZoNMWm9WyMWbKDVTsdmJTS0xaUCiS2TZphWbWmwqsQkLPb+mdCudNxUSzNcECeYLVrEjZb/PQPzyaZA+fQqkobBh4NaUjNfuTBMwTKHawp40YM6WMJZ7XKKLmaHEo2Tu5dptN6dp4BDTlHZTq9KDWT5SfTyP94RUOSaFoD8vA0hILWIJMprO/AGn6O3uRfZTvAAAAABJRU5ErkJggg==" alt=""/><span id="tt">تُرُب</span><span class="td">موتور جستجوی هوشمند خرید</span><span class="td ex">ساخته شده  با افتخار در دانشگاه شریف</span></a></p>-->
+<div id="loading"><img src="./static_root/images/loading.gif"/></div>
+</div>
+<div id="content-body">
+<div class="grid">
+<div class="hour-column">
+		
+		7<br/>
+		
+		8<br/>
+		
+		9<br/>
+		
+		10<br/>
+		
+		11<br/>
+		
+		12<br/>
+		
+		13<br/>
+		
+		14<br/>
+		
+		15<br/>
+		
+		16<br/>
+		
+		17<br/>
+		
+		18<br/>
+		
+		19<br/>
+		
+		20<br/>
+</div>
+<div class="week-container">
+<div class="column">
+<div class="header">
+<img src="./static_root/images/weekdays/sat.png"/>
+</div>
+<div class="events" id="weekday-0">
+</div>
+</div>
+<div class="column">
+<div class="header">
+<img src="./static_root/images/weekdays/sun.png"/>
+</div>
+<div class="events" id="weekday-1">
+</div>
+</div>
+<div class="column">
+<div class="header">
+<img src="./static_root/images/weekdays/mon.png"/>
+</div>
+<div class="events" id="weekday-2">
+</div>
+</div>
+<div class="column">
+<div class="header">
+<img src="./static_root/images/weekdays/tue.png"/>
+</div>
+<div class="events" id="weekday-3">
+</div>
+</div>
+<div class="column">
+<div class="header">
+<img src="./static_root/images/weekdays/wed.png"/>
+</div>
+<div class="events" id="weekday-4">
+</div>
+</div>
+<div class="column">
+<div class="header">
+<img src="./static_root/images/weekdays/thu.png"/>
+</div>
+<div class="events" id="weekday-5">
+</div>
+</div>
+<br style="clear:both;"/>
+</div>
+</div>
+</div>
+<br style="clear:both;"/>
+</div>
+</div>
+<div class="bottom">
+<div class="bottom-right"></div>
+<div class="bottom-left"></div>
+<div class="bottom-center"></div>
+</div>
+</div>
+<div id="footer">
+			©2012–2022, TermInator. Brought to you by <a href="http://sadjad.org" target="_blank">Sadjad Fouladi</a> and <a href="http://kamyarinfinity.me" target="_blank">Kamyar Allahverdi</a>.<br/><small>The legend says: "the problem is choice."</small>
+</div>
+</div>
+<script src="./static_root/scripts/jquery-1.7.1.js" type="text/javascript"></script>
+<script src="./static_root/scripts/jquery.simpletip.pack.js" type="text/javascript"></script>
+<script src="./static_root/scripts/sprintf.js" type="text/javascript"></script>
+<script src="./static_root/scripts/waypoints.min.js" type="text/javascript"></script>
+<script src="./static_root/scripts/jquery.liveFilter.js" type="text/javascript"></script>
+<script src="./static_root/scripts/grid.js" type="text/javascript"></script>
+<script src="./static_root/scripts/jquery.modal.min.js" type="text/javascript"></script>
+<script src="./static_root/scripts/courseinfo.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+	/*$("#sidebar").waypoint(function(event, direction) {
+		if(direction === 'down') {
+			$("#sidebar").addClass('fixed-sidebar');
+		}
+		else {
+			$("#sidebar").removeClass('fixed-sidebar');
+		}
+	}, {
+
+	});*/
+	//$(".list").height(Math.min($(window).height() - 200, $(".grid").height() - 50));
+	$(".list ul").height(Math.min($(window).height() - 255, $(".grid").height() - 125));
+	$("ul#course-group-list").liveFilter('basic');
+	
+	var tempAddedItems = [];
+	
+
+	for(i = 0; i < tempAddedItems.length; i++) {
+		grid.addCourse(tempAddedItems[i], false, true);
+	}
+	grid.updateUnitsCount(false);
+</script>
+<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-28717546-1']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+</body>
+</html>

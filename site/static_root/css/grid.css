@@ -1,0 +1,144 @@
+.grid {
+	width:100%;
+}
+
+.grid .week-container {
+	margin-right:10px;
+}
+
+.grid .column {
+	width:16%;
+	float:right;
+	margin-right:2px;
+	border-radius:5px;
+}
+
+.grid .hour-column {
+	line-height:52px;
+	float:right;
+	margin-top:9px;
+	font-size:10px;
+	font-weight:bold;
+	text-align:left;
+	margin-left:2px;
+	color:#666;
+}
+
+.grid .column .header {
+	background:#C7D0DC;
+	text-align:center;
+	height:35px;
+	margin-bottom:2px;
+}
+
+.grid .column .events {
+	background:url("../images/calendar-bg.png");
+	height:676px;
+	position:relative;
+}
+
+.grid .event {
+	color:#000;
+	/* border */
+	border:solid 1px #E2BD36;-moz-border-radius-topleft: 5px; -moz-border-radius-topright:5px; -moz-border-radius-bottomleft:5px; -moz-border-radius-bottomright:5px; -webkit-border-top-left-radius:5px; -webkit-border-top-right-radius:5px; -webkit-border-bottom-left-radius:5px;-webkit-border-bottom-right-radius:5px;border-top-left-radius:5px; border-top-right-radius:5px; border-bottom-left-radius:5px;border-bottom-right-radius:5px;
+	/* gradient */
+	background: #f3e5ae; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f3e5ae 0%, #ecd376 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3e5ae), color-stop(100%,#ecd376)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f3e5ae 0%,#ecd376 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f3e5ae 0%,#ecd376 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f3e5ae 0%,#ecd376 100%); /* IE10+ */
+	background: linear-gradient(top,  #f3e5ae 0%,#ecd376 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e5ae', endColorstr='#ecd376',GradientType=0 ); /* IE6-9 */
+	text-align:center;
+	vertical-align:middle;
+	width:95%;
+	margin:0 2.5%;
+	position:absolute;
+	overflow:hidden;
+}
+
+.grid .event .course-id {
+	font-size:11px;
+	font-weight:bold;
+	margin-bottom:5px;
+}
+
+.grid .event .course-title {
+	padding-left:5px;
+	padding-right:5px;
+	font-weight:bold;
+}
+
+.grid .event .instructor {
+	font-size:11px;
+}
+
+.grid .event-preview {
+	z-index:1000;
+	border-color:#999999;
+	opacity:1.0 x;
+	background: #eeeeee; /* Old browsers */
+	background: -moz-linear-gradient(top,  #eeeeee 0%, #d3d3d3 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#d3d3d3)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #eeeeee 0%,#d3d3d3 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #eeeeee 0%,#d3d3d3 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #eeeeee 0%,#d3d3d3 100%); /* IE10+ */
+	background: linear-gradient(top,  #eeeeee 0%,#d3d3d3 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#d3d3d3',GradientType=0 ); /* IE6-9 */
+}
+
+.grid .event-delete {
+	background: #e75a47; /* Old browsers */
+	background: -moz-linear-gradient(top,  #e75a47 0%, #b13231 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e75a47), color-stop(100%,#b13231)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #e75a47 0%,#b13231 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #e75a47 0%,#b13231 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #e75a47 0%,#b13231 100%); /* IE10+ */
+	background: linear-gradient(top,  #e75a47 0%,#b13231 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e75a47', endColorstr='#b13231',GradientType=0 ); /* IE6-9 */
+	border:1px solid #b13231;
+	color:#fff;
+}
+
+.grid .event-delete a {
+	color:#fff;
+}
+
+.grid .event:hover, .grid .event-hover {
+	opacity:1;
+}
+
+.grid .event p {
+	margin:0;
+	margin-bottom:2px;
+	margin-top:3px;
+}
+
+a.del-button {
+	cursor:pointer;
+	display:block;
+	position:absolute;
+	float:left;
+	left:3px;
+	top:3px;
+	width:16px;
+	height:16px;
+	display:none;
+	background: url("../images/delete.png") no-repeat;
+}
+
+a.del-button:hover {
+	background-position:0 -16px;
+}
+
+.grid a {
+	color:#000;
+}
+
+.grid a:hover {
+	color:#122265;
+}
+
+
+
