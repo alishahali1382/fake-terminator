@@ -5,6 +5,7 @@ from urllib.parse import urljoin
 import bs4
 import requests
 
+from update_courses import get_departments_from_edu
 
 def wget(session: requests.Session, url: str, local_path: Path):
     try:
@@ -26,11 +27,21 @@ def replace_relative_links(response_text):
 def fix_main_page(response_text):
     response_text = replace_relative_links(response_text)
     soup = bs4.BeautifulSoup(response_text, 'html.parser')
-    # add this:
-    # 	<meta charset="UTF-8">
-    
     soup.find('head').append(soup.new_tag('meta', charset="UTF-8"))
-    return str(soup)    
+    tag = soup.find('select', id="department-select")
+    # remove all children of tag
+    for child in tag.find_all("option", value=True):
+        if int(child.get('value')) > 0:
+            child.decompose()
+    
+    departments = get_departments_from_edu()
+    for code, name in departments:
+        child = soup.new_tag('option', value=code)
+        child.string = name
+        tag.append(child)
+    
+    return str(soup)
+    # return soup.prettify()
 
 def get_file(session, domain, url):
     rel_path: Path = Path.cwd() / url
@@ -61,3 +72,14 @@ def get_static_files(session, domain, content):
         if url.endswith(".css"):
             get_files_from_css(session, domain, url)
 
+def fix_grid_js():
+    path = Path.cwd() / 'static_root/scripts/grid.js'
+    with open(path, "r") as f:
+        text = f.read()
+    
+    # remove last `/`
+    text = text.replace('/courses/list/%s/', '/courses/list/%s')
+    
+    with open(path, "w") as f:
+        f.write(text)
+    

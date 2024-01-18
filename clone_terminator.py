@@ -2,7 +2,8 @@ import os
 
 import requests
 
-from utils import fix_main_page, get_static_files
+from update_courses import get_and_write_courses_from_edu
+from utils import fix_main_page, get_static_files, fix_grid_js
 
 domain = 'https://term.inator.ir'
 session = requests.Session()
@@ -19,3 +20,7 @@ with open('index.html', 'w') as f:
     f.write(content)
 
 get_static_files(session, domain, content)
+fix_grid_js()
+get_and_write_courses_from_edu()
+
+

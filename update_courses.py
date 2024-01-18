@@ -6,8 +6,6 @@ from pathlib import Path
 
 import requests
 
-edu_url = "https://edu.sharif.edu/list/courses"
-
 
 class Course:
     def __init__(self, terminator_id, id, group, units, course_name, instructor, course_time, exam_time, details, link, *args) -> None:
@@ -57,7 +55,8 @@ def write_courses_to_csv(courses, csv_filename):
             writer.writerow(course)
 
 def get_departments(edu_content):
-    return re.findall(r'<option value="(\d+)">(.*?)</option>', edu_content)
+    departments = re.findall(r'<option value="(\d+)">(.*?)</option>', edu_content)
+    return [d for d in departments if len(d[0])==2]
 
 def get_courses(edu_content):
     courses_raw = fetch_courses_raw(edu_content)
@@ -66,10 +65,12 @@ def get_courses(edu_content):
 
 def write_courses_json(edu_content):
     all_courses = get_courses(edu_content)
+    departments = get_departments(edu_content)
     # group courses by str(course.course_id)[:2]
-    course_dict: dict[str, list[Course]] = dict()
+    course_dict: dict[str, list[Course]] = {code : list() for code, name in departments}
     for course in all_courses:
-        course_dict.setdefault(str(course.course_id)[:2], []).append(course.__dict__)
+        # course_dict.setdefault(str(course.course_id)[:2], []).append(course.__dict__)
+        course_dict[str(course.course_id)[:2]].append(course.__dict__)
     
     for department, courses in course_dict.items():
         path = Path("courses/list") / f"{department}"
@@ -77,9 +78,17 @@ def write_courses_json(edu_content):
         with open(path, "w") as f:
             f.write(json.dumps(courses, indent=4))
 
+def request_edu():
+    edu_url = "https://edu.sharif.edu/list/courses"
+    return requests.get(edu_url).text
+
+def get_departments_from_edu():
+    return get_departments(request_edu())
+
+def get_and_write_courses_from_edu():
+    write_courses_json(request_edu())
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(__file__))
     os.chdir('site')
-    content = requests.get(edu_url).text
-    write_courses_json(content)
+    write_courses_json(request_edu())

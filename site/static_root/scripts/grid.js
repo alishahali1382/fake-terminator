@@ -151,7 +151,7 @@ function get_course_list(dep_id) {
 	else
 	{
 		$.ajax({
-			url: sprintf('/courses/list/%s/', dep_id),
+			url: sprintf('/courses/list/%s', dep_id),
 			success: function(data) {
 				var courses = eval(data);
 				
