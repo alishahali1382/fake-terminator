@@ -5,8 +5,11 @@ from socketserver import TCPServer
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 os.chdir('site')
 
+PORT = 8000
+
 handler = SimpleHTTPRequestHandler
-httpd = TCPServer(('localhost', 8000), handler)
+TCPServer.allow_reuse_address = True
+httpd = TCPServer(('localhost', PORT), handler)
+print("Serving at port", PORT)
 
 httpd.serve_forever()
-print("shit")
