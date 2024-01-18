@@ -3,7 +3,7 @@ import os
 import requests
 
 from update_courses import get_and_write_courses_from_edu
-from utils import fix_main_page, get_static_files, fix_grid_js
+from utils import fix_grid_js, fix_main_page, get_static_files
 
 domain = 'https://term.inator.ir'
 session = requests.Session()

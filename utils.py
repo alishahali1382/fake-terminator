@@ -7,6 +7,7 @@ import requests
 
 from update_courses import get_departments_from_edu
 
+
 def wget(session: requests.Session, url: str, local_path: Path):
     try:
         response = session.get(url)
