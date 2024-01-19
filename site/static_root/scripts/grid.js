@@ -68,7 +68,6 @@ var grid = {
 			$("#weekday-" + course.events[i].day).append(res);
 		}
 
-
 		if(!preview && !initial)
 		{
 			$.ajax({

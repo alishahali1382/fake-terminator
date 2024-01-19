@@ -80,6 +80,10 @@ def fix_grid_js():
     
     # remove last `/`
     text = text.replace('/courses/list/%s/', '/courses/list/%s')
+    text = text.replace(
+        'course.instructor);',
+        'course.instructor +"<p> تاریخ امتحان: " + course.exam_time + "</p>");'
+    )
     
     with open(path, "w") as f:
         f.write(text)
