@@ -63,10 +63,11 @@ var grid = {
 					course.course_id,
 					course.course_id,
 					'<a href="/courses/info/' + course.course_number + '/" class="show-course-info">' + course.name + "</a>",
-					course.instructor);
+					course.instructor +"<p> تاریخ امتحان: " + course.exam_time + "</p>");
 
 			$("#weekday-" + course.events[i].day).append(res);
 		}
+
 
 		if(!preview && !initial)
 		{
